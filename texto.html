@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página Creativa con Cambio de Colores</title>
+    <style>
+      body {
+        background: #0a0a0a;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      #explosion {
+        display: none;
+        animation: explosion 2s ease forwards;
+      }
+
+      #mensaje {
+        display: none;
+        font-size: 24px;
+        animation: mancha 5s linear forwards, cambioColores 20s infinite;
+      }
+
+      @keyframes explosion {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(1);
+          display: block;
+        }
+      }
+
+      @keyframes mancha {
+        0% {
+          background: transparent;
+          filter: blur(10px);
+          color: #ff0000;
+        }
+        100% {
+          background: transparent;
+          filter: blur(0);
+          color: #ff0000;
+        }
+      }
+
+      @keyframes cambioColores {
+        0% {
+          color: #ff0000;
+        }
+        20% {
+          color: #00ff00;
+        }
+        40% {
+          color: #0000ff;
+        }
+        60% {
+          color: #ff00ff;
+        }
+        80% {
+          color: #ffff00;
+        }
+        100% {
+          color: #ff0000;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="explosion">
+      <img
+        src="https://via.placeholder.com/100?text=Explosión"
+        alt="Explosión"
+      />
+    </div>
+    <div id="mensaje">Te extraño mucho mi princesita hermosa.</div>
+
+    <script>
+      setTimeout(function () {
+        document.getElementById("explosion").style.display = "none";
+        document.getElementById("mensaje").style.display = "block";
+      }, 2000); // Cambia el valor 2000 a la cantidad de milisegundos que desees para el retraso.
+    </script>
+  </body>
+</html>
